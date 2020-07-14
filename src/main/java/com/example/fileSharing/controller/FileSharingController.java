@@ -15,12 +15,12 @@ import com.example.fileSharing.repository.UserRepo;
 @RequestMapping("/")
 public class FileSharingController {
 	@Autowired
-	static private UserRepo userrep;
+    private UserRepo userrep;
 
 	@PostMapping("/register")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void register(@RequestBody SampleFile user, @RequestBody SampleFile password) {
-		UserRepo.save();
+	public void register(@RequestBody SampleFile user) {
+		
 	}
 
 }
