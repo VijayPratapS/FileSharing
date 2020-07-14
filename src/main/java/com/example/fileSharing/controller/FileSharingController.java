@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.example.fileSharing.model.SampleFile;
 import com.example.fileSharing.repository.UserRepo;
 
@@ -32,8 +33,17 @@ public class FileSharingController {
 	public List<SampleFile> getFile() {
 		return userrep.findAll();
 	}
-	@GetMapping("/api/file/{id}")
-	public List 
-	}
 
+	@GetMapping("/api/file/{id}")
+	public ResponseEntity<SampleFile> getFileById(@PathVariable(name = "id") String id) {
+
+		Optional<SampleFile> optional = userrep.findById(id);
+
+		if (optional.isPresent()) {
+			SampleFile file = userrep.getOne(id);
+			return new ResponseEntity<>(file, HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
 }
+
