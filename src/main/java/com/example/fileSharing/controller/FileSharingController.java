@@ -3,6 +3,7 @@ package com.example.fileSharing.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.fileSharing.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,29 +22,22 @@ import com.example.fileSharing.repository.UserRepo;
 @RequestMapping("/")
 public class FileSharingController {
 	@Autowired
-	private UserRepo userrep;
+	private UserService service;
 
 	@PostMapping("/register")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void register(@RequestBody SampleFile user) {
-		userrep.save(user);
+		service.register(user);
 	}
 
 	@GetMapping("/api/file")
 	public List<SampleFile> getFile() {
-		return userrep.findAll();
+		return service.getFile();
 	}
 
 	@GetMapping("/api/file/{id}")
-	public ResponseEntity<SampleFile> getFileById(@PathVariable(name = "id") String id) {
-
-		Optional<SampleFile> optional = userrep.findById(id);
-
-		if (optional.isPresent()) {
-			SampleFile file = userrep.getOne(id);
-			return new ResponseEntity<>(file, HttpStatus.OK);
-		}
-		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	public SampleFile getFileById(@PathVariable(name = "id") String id) {
+        return service.getFileById(id);
 	}
 }
 
