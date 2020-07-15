@@ -22,7 +22,8 @@ public class SampleFile {
 	@Id
 	private String EmailId;
 	private String password;
-	private String name;
+	private String   name;
+
 	private String Message;
 
 }
