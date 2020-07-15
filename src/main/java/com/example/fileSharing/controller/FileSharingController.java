@@ -1,7 +1,6 @@
 package com.example.fileSharing.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.example.fileSharing.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.fileSharing.model.SampleFile;
-import com.example.fileSharing.repository.UserRepo;
 
 @RestController
 @RequestMapping("/")
@@ -36,7 +34,7 @@ public class FileSharingController {
 	}
 
 	@GetMapping("/api/file/{id}")
-	public SampleFile getFileById(@PathVariable(name = "id") String id) {
+	public ResponseEntity<SampleFile> getFileById(@PathVariable(name = "id") String id) {
         return service.getFileById(id);
 	}
 }

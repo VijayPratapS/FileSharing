@@ -27,13 +27,15 @@ public class UserService {
         return list;
     }
 
-    public SampleFile getFileById(String id) {
+    public ResponseEntity<SampleFile> getFileById(String id) {
         Optional<SampleFile> optional = userrep.findById(id);
 
         if (optional.isPresent()) {
             SampleFile file = userrep.getOne(id);
-            return file;
+            return new ResponseEntity<>(file, HttpStatus.OK);
         }
-        return new SampleFile();
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+
     }
 }
