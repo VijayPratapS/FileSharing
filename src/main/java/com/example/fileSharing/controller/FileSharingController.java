@@ -17,25 +17,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.fileSharing.model.SampleFile;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping
 public class FileSharingController {
 	@Autowired
 	private UserService service;
 
-	@PostMapping("/register")
-	@ResponseStatus(code = HttpStatus.CREATED)
+	@PostMapping(value = "/register" , consumes = {"application/JSON"})
 	public void register(@RequestBody SampleFile user) {
 		service.register(user);
+	}
+
+
+	@GetMapping("/api/file/{id}")
+	public ResponseEntity<SampleFile> getFileById(@PathVariable(name = "id") String id) {
+		return service.getFileById(id);
 	}
 
 	@GetMapping("/api/file")
 	public List<SampleFile> getFile() {
 		return service.getFile();
-	}
-
-	@GetMapping("/api/file/{id}")
-	public ResponseEntity<SampleFile> getFileById(@PathVariable(name = "id") String id) {
-        return service.getFileById(id);
 	}
 }
 

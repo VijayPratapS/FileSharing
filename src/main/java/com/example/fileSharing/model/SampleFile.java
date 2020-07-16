@@ -8,13 +8,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "userfile")
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -22,8 +21,7 @@ public class SampleFile {
 	@Id
 	private String EmailId;
 	private String password;
-	private String   name;
-
+	private String name;
 	private String Message;
 
 }

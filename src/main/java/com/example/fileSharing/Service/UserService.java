@@ -17,7 +17,7 @@ public class UserService {
     @Autowired
     private UserRepo userrep;
 
-    public void register(@RequestBody SampleFile user) {
+    public void register(SampleFile user) {
         userrep.save(user);
     }
 
