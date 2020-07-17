@@ -24,4 +24,5 @@ public class User {
     @OneToMany(cascade = ALL)
     @JoinColumn(name = "uid" ,referencedColumnName ="userid")
     private List<UserFile> fileList;
+
 }

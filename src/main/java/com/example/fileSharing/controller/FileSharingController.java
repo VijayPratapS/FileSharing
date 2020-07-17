@@ -29,6 +29,7 @@ public class FileSharingController {
 	public List<UserFile> getFile() {
 		return service.getFile();
 	}
+
 	@PostMapping(value = "/api/file",consumes = {"application/json"})
 	public void fileUpload(@RequestBody UserFile file)
 	{
