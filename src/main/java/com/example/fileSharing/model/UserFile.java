@@ -17,11 +17,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class SampleFile {
+public class UserFile {
 	@Id
-	private String EmailId;
-	private String password;
-	private String name;
-	private String Message;
-
+	private String fileId;
+	private String message;
 }
