@@ -21,7 +21,5 @@ public class UserFile {
 	@Id
 	private String fileId;
 	private String message;
-	@OneToMany(cascade = ALL)
-	@JoinColumn(name = "file_id" ,referencedColumnName ="fileid")
-	private List<ShareDetails> fLst;
+
 }

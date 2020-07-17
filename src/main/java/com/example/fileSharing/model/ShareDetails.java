@@ -18,5 +18,7 @@ import static javax.persistence.CascadeType.ALL;
 @Setter
 public class ShareDetails {
     @Id
-    private String emailid;
+    private String userid;
+    private String fileId;
 }
+
