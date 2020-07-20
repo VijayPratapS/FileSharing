@@ -27,7 +27,7 @@ public class FileSharingController {
         return service.getFile();
     }
 
-    @PostMapping(value = "/api/file", consumes = {"application/json"})
+    @PostMapping(value = "/api/file")
     public void fileUpload(@RequestParam(value = "file") MultipartFile file) throws IOException {
         service.fileUpload(file);
         //use multipart file for uplodaing file data
