@@ -3,7 +3,7 @@ Dependencies Used:
 Spring Boot 2.3.1
 Java 1.8
 JPA
-Maven
+ Gradle
 Restfull
 Lombok
 H2 DB
