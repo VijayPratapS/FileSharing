@@ -1,14 +1,13 @@
 package com.example.fileSharing.model;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.*;
-
-import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "userfile")
@@ -18,8 +17,8 @@ import static javax.persistence.CascadeType.ALL;
 @AllArgsConstructor
 
 public class UserFile {
-	@Id
-	private String fileId;
-	private String message;
+    @Id
+    private String fileId;
+    private String message;
 
 }

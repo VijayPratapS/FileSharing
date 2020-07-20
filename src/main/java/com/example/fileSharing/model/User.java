@@ -4,15 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
 
-import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
-@Table(name="User")
+@Table(name = "User")
 @Setter
 @Getter
 @NoArgsConstructor
@@ -22,7 +21,7 @@ public class User {
     private String userid;
     private String password;
     @OneToMany(cascade = ALL)
-    @JoinColumn(name = "uid" ,referencedColumnName ="userid")
+    @JoinColumn(name = "uid", referencedColumnName = "userid")
     private List<UserFile> fileList;
 
 }

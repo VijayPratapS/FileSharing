@@ -5,19 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name="ShareDetails")
+@Table(name = "ShareDetails")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class ShareDetails {
     @Id
+    private String id;
     private String userid;
     private String fileId;
 }
