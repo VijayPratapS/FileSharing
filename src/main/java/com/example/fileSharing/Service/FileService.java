@@ -47,6 +47,7 @@ public class FileService {
         try {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
              LocalDateTime now = LocalDateTime.now();
+             
             String filename = StringUtils.cleanPath(dtf.format(now) + "  " + file.getOriginalFilename());
             if (filename.contains("..")) {
                 throw new RuntimeException("Sorry! Filename contains invalid path sequence " + filename);
