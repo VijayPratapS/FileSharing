@@ -13,16 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
-    @Autowired
-    private ShareService shareService;
 
-    @PostMapping(value = "/register", consumes = {"application/json"})
+    @PostMapping(value = "/register")
     public void register(@RequestBody User user) {
         userService.register(user);
     }
 
-    @PostMapping(value = "/api/share")
-    public void share(@RequestBody ShareDetails shareDetails) {
-        shareService.share(shareDetails);
-    }
+
 }
